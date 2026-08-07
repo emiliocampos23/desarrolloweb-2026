@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador de Películas</title>
+  <link rel="stylesheet" href="peliculas_estilo.css">
+</head>
+<body>
+
+  <header>
+    <h1>Administrador de Películas</h1>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 id="form-titulo">Registrar película</h2>
+      <div id="mensaje-error" class="error-box oculto"></div>
+
+      <form id="form-pelicula">
+        <input type="hidden" id="pelicula-id">
+
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Ej. Star Wars">
+        </div>
+
+        <div class="campo">
+          <label for="genero">Género</label>
+          <select id="genero">
+            <option value="">Selecciona un género</option>
+            <option value="Acción">Acción</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Drama">Drama</option>
+            <option value="Terror">Terror</option>
+            <option value="Ciencia Ficción">Ciencia Ficción</option>
+            <option value="Animación">Animación</option>
+            <option value="Romance">Romance</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="anio">Año</label>
+          <input type="number" id="anio" placeholder="Ej. 2014">
+        </div>
+
+        <div class="campo">
+          <label for="calificacion">Calificación (0 - 10)</label>
+          <input type="number" id="calificacion" step="0.1" placeholder="Ej. 8.5">
+        </div>
+
+        <div class="botones-form">
+          <button type="submit" id="btn-guardar">Agregar película</button>
+          <button type="button" id="btn-cancelar" class="btn-secundario oculto">Cancelar edición</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Buscar y filtrar</h2>
+      <div class="controles">
+        <input type="text" id="buscar-nombre" placeholder="Buscar por nombre...">
+
+        <select id="filtro-genero">
+          <option value="todos">Todos los géneros</option>
+          <option value="Acción">Acción</option>
+          <option value="Comedia">Comedia</option>
+          <option value="Drama">Drama</option>
+          <option value="Terror">Terror</option>
+          <option value="Ciencia Ficción">Ciencia Ficción</option>
+          <option value="Animación">Animación</option>
+          <option value="Romance">Romance</option>
+          <option value="Otro">Otro</option>
+        </select>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="filtro-calificacion">
+          Solo calificación ≥ 8
+        </label>
+
+        <button type="button" id="btn-limpiar-filtros" class="btn-secundario">Limpiar filtros</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="resumen">
+        <h2>Colección de películas</h2>
+        <span id="promedio-calificacion">Promedio: N/A</span>
+      </div>
+      <div id="lista-peliculas" class="lista-peliculas"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Emilio Campos Pérez &mdash; Matrícula: 201194629</p>
+  </footer>
+
+  <script src="peliculas_js.js"></script>
+</body>
+</html>
