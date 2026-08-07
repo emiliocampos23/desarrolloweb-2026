@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+
+</head>
+
+<body>
+
+    <h2>Inventario</h2>
+
+    <label>Producto: <input type="text" id="producto"></label><br>
+    <label>Precio: <input type="text" id="precio"></label><br>
+    <label>Stock: <input type="text" id="stock"></label><br>
+
+
+
+    <button onclick="calcular()">Totales</button>
+    <button onclick="agregar()">Agregar</button>
+    <h3 id="resultado"></h3>
+    <ul id="lista"></ul>
+    <script>
+
+        let productos = []
+        function agregar() {
+            let nombre = document.getElementById('producto').value;
+            let precio = parseFloat(document.getElementById('precio').value);
+            let stock = parseInt(document.getElementById('stock').value);
+            productos.push({ producto: nombre, precio: precio, stock: stock })
+            mostrarProductos()
+        }
+        function mostrarProductos() {
+            let idlista = document.getElementById("lista")
+            idlista.innerHTML = ""
+            for (let i of productos) {
+                let dato = document.createElement("li")
+                dato.textContent = i.producto + " " + i.precio + " " + i.stock
+                idlista.appendChild(dato)
+            }
+        }
+        function calcular() {
+
+            let total = 0;
+
+            for (let p of productos) {
+
+                total += p.precio * p.stock;
+
+            }
+
+            document.getElementById("resultado").textContent =
+                "Valor total del inventario: $" + total;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
