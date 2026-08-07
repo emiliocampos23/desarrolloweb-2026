@@ -1,0 +1,44 @@
+body{
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+}
+
+.nombre{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+font-size:28px;
+font-weight:bold;
+}
+
+.encabezado{
+text-align:center;
+padding:20px;
+}
+
+.pregunta{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 5px rgba(0,0,0,.15);
+}
+
+.incorrecta{
+color:red;
+font-weight:bold;
+}
+
+.correcta{
+color:green;
+font-weight:bold;
+}
+
+.explicacion{
+margin-top:10px;
+padding:10px;
+background:#f0f0f0;
+border-left:4px solid #444;
+}
