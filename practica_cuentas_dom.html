@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuenta Bancaria Interactiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input {
+            padding: 8px;
+            margin: 10px 0;
+            width: 80%;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        #depositar {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #retirar {
+            background-color: #f44336;
+            color: white;
+        }
+        #saldo {
+            background-color: #2196F3;
+            color: white;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cuenta Bancaria</h2>
+        <p>Titular: Emilio Campos</p>
+        <p id="saldoActual">Saldo actual: $1000</p>
+
+        <input type="number" id="cantidad" placeholder="Cantidad">
+        <br>
+        <button id="depositar">Depositar</button>
+        <button id="retirar">Retirar</button>
+        <button id="saldo">Consultar</button>
+
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        const cuentaBancaria = {
+            titular: "José",
+            saldo: 1000,
+
+            depositar(cantidad) {
+                if (cantidad > 0) {
+                    this.saldo += cantidad;
+                    return `Has depositado $${cantidad}. Nuevo saldo: $${this.saldo}`;
+                } else {
+                    return "La cantidad a depositar debe ser mayor que 0.";
+                }
+            },
+
+            retirar(cantidad) {
+                if (cantidad > 0) {
+                    if (cantidad <= this.saldo) {
+                        this.saldo -= cantidad;
+                        return `Has retirado $${cantidad}. Nuevo saldo: $${this.saldo}`;
+                    } else {
+                        return "Fondos insuficientes para realizar el retiro.";
+                    }
+                } else {
+                    return "La cantidad a retirar debe ser mayor que 0.";
+                }
+            },
+
+            consultarSaldo() {
+                return `Saldo actual: $${this.saldo}`;
+            }
+        };
+
+        const cantidadInput = document.getElementById("cantidad");
+        const resultado = document.getElementById("resultado");
+        const saldoActual = document.getElementById("saldoActual");
+
+        document.getElementById("depositar").addEventListener("click", () => {
+            const cantidad = parseFloat(cantidadInput.value);
+            resultado.textContent = cuentaBancaria.depositar(cantidad);
+            saldoActual.textContent = cuentaBancaria.consultarSaldo();
+        });
+
+        document.getElementById("retirar").addEventListener("click", () => {
+            const cantidad = parseFloat(cantidadInput.value);
+            resultado.textContent = cuentaBancaria.retirar(cantidad);
+            saldoActual.textContent = cuentaBancaria.consultarSaldo();
+        });
+
+        document.getElementById("saldo").addEventListener("click", () => {
+            resultado.textContent = cuentaBancaria.consultarSaldo();
+        });
+    </script>
+</body>
+</html>
