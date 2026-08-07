@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Responsive - Grid + Flexbox</title>
+    <link rel="stylesheet" href="estilos1.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header con Flexbox interno -->
+        <header class="header">
+            <h1>Mi Dashboard</h1>
+            <div class="user-info">
+                <span>👋 Hola, Emilio</span>
+                <button class="btn-logout">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <!-- Sidebar con navegación -->
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">📊 Inicio</a>
+                <a href="#" class="nav-item">📈 Reportes</a>
+                <a href="#" class="nav-item">⚙️ Configuración</a>
+                <a href="#" class="nav-item">👤 Perfil</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal con Grid interno para tarjetas -->
+        <main class="main-content">
+            <h2>Bienvenida de vuelta</h2>
+            <div class="tarjetas-grid">
+                <div class="tarjeta">
+                    <h3>Ventas</h3>
+                    <p class="numero">$12,450</p>
+                    <span class="trending">↑ 15%</span>
+                </div>
+                <div class="tarjeta">
+                    <h3>Usuarios</h3>
+                    <p class="numero">1,234</p>
+                    <span class="trending">↑ 8%</span>
+                </div>
+                <div class="tarjeta">
+                    <h3>Productos</h3>
+                    <p class="numero">56</p>
+                    <span class="trending">↓ 2%</span>
+                </div>
+                <div class="tarjeta">
+                    <h3>Ingresos</h3>
+                    <p class="numero">$8,320</p>
+                    <span class="trending">↑ 12%</span>
+                </div>
+            </div>
+
+            <!-- Sección adicional con Flexbox -->
+            <div class="actividad-reciente">
+                <h3>Actividad reciente</h3>
+                <div class="lista-actividad">
+                    <div class="actividad-item">✅ Pedido #1234 completado</div>
+                    <div class="actividad-item">🔄 Actualización de perfil</div>
+                    <div class="actividad-item">💬 Nuevo comentario recibido</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 - Dashboard responsive con Grid + Flexbox</p>
+        </footer>
+    </div>
+</body>
+</html>
